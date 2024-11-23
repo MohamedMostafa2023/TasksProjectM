@@ -43,7 +43,8 @@ function AppHeader({ onSearch, onToggleSideNav }) {
                 value={searchValue}
                 radius="md"
                 onChange={(event) => handleSearchChange(event.target.value)}
-                style={{ width: 'Calc(100% - 390px)', marginRight: 'auto' }}
+                className="customWidthSearch"
+                style={{ marginRight: 'auto' }}
             />
 
             <Menu shadow="md" width={200}>
@@ -51,10 +52,10 @@ function AppHeader({ onSearch, onToggleSideNav }) {
                     <UnstyledButton>
                         <Group spacing="xs">
                             <Avatar src={userAvatar} radius="xl" size="md" />
-                            <Text weight={500} size="sm">
+                            <Text className="CustomHide" weight={500} size="sm">
                                 {user.name}
                             </Text>
-                            <IconChevronDown size={16} />
+                            <IconChevronDown className="CustomHide" size={16} />
                         </Group>
                     </UnstyledButton>
                 </Menu.Target>

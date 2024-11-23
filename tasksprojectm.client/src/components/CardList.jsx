@@ -163,10 +163,10 @@ function CardList({ selectedTaskGroupId, searchQuery }) {
 
     return (
         <Container style={{ margin: '0 auto', minWidth:'-webkit-fill-available', paddingRight:'0' }}>
-            <div style={{ height: 'Calc(100vh - 190px)', overflow: 'auto', width: '100%' }}>
+            <div style={{ height: 'Calc(100vh - 190px)', overflow: 'auto', width: '100%', padding:'0 20px' }}>
                 {/* List of Tasks */}
                 {filteredTasks.map((task) => (
-                    <Card key={task.taskId} radius="lg" style={{ maxWidth: '60%', marginLeft: 'auto', marginRight: 'auto' }} shadow="sm" padding="lg" mb="sm">
+                    <Card key={task.taskId} radius="lg" style={{ maxWidth: '40rem', marginLeft: 'auto', marginRight: 'auto' }} shadow="sm" padding="lg" mb="sm">
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <Group position="left" style={{ width: '90%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', alignItems: 'flex-start' }}>
                                 <Group>

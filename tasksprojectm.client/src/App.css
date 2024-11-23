@@ -10,3 +10,17 @@
 .customSmooth {
     transition: all 0.5s ease-in-out;
 }
+
+.customWidthSearch {
+    width: calc(100% - 390px);
+}
+
+@media (max-width: 594px) {
+    .CustomHide {
+        display: none;
+    }
+
+    .customWidthSearch {
+        width: calc(100% - 240px);
+    }
+}
