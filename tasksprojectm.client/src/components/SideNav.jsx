@@ -184,6 +184,11 @@ function Sidebar({ onTaskGroupSelect }) {
                     placeholder="Enter task group name"
                     radius="md"
                     size="sm"
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            addItem();
+                        }
+                    }}
                 />
                 <Button
                     onClick={addItem}
