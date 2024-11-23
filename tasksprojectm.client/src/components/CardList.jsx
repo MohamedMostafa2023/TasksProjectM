@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
     Card,
     Text,
@@ -26,6 +26,19 @@ function CardList({ selectedTaskGroupId, searchQuery }) {
     const [editTaskName, setEditTaskName] = useState('');
     const [editTaskDescription, setEditTaskDescription] = useState('');
     const [editModalOpened, setEditModalOpened] = useState(false);
+    const customCardListRef = useRef(null);
+
+    const scrollToEnd = () => {
+        setTimeout(() => {
+            if (customCardListRef.current) {
+                customCardListRef.current.scrollTo({
+                    top: customCardListRef.current.scrollHeight,
+                    behavior: 'smooth',
+                });
+            }
+        }, 100);
+    };
+
 
     const fetchTasks = async (taskGroupId) => {
         const token = getAuthTokenFromCookie();
@@ -46,6 +59,9 @@ function CardList({ selectedTaskGroupId, searchQuery }) {
         }
     };
 
+    useEffect(() => {
+        scrollToEnd();
+    }, [tasks]);
 
     useEffect(() => {
         const lowerCaseQuery = searchQuery.toLowerCase();
@@ -162,8 +178,8 @@ function CardList({ selectedTaskGroupId, searchQuery }) {
     };
 
     return (
-        <Container style={{ margin: '0 auto', minWidth:'-webkit-fill-available', padding:'0' }}>
-            <div style={{ height: 'Calc(100vh - 190px)', overflow: 'auto', width: '100%', padding:'0 20px' }}>
+        <Container style={{ margin: '0 auto', minWidth: '-webkit-fill-available', padding: '0' }}>
+            <div ref={customCardListRef} className="CustomCardList" style={{ height: 'Calc(100vh - 190px)', overflow: 'auto', width: '100%', padding: '0 20px' }}>
                 {/* List of Tasks */}
                 {filteredTasks.map((task) => (
                     <Card key={task.taskId} radius="lg" style={{ maxWidth: '40rem', marginLeft: 'auto', marginRight: 'auto' }} shadow="sm" padding="lg" mb="sm">
