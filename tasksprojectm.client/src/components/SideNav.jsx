@@ -175,7 +175,7 @@ function Sidebar({ onTaskGroupSelect }) {
 
     return (
         <Box p="md">
-            <h3 style={{ textAlign: 'center' }}>Task Groups</h3>
+            <h3 style={{ textAlign: 'center', marginTop:'0' }}>Tasks Project M</h3>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
                 <TextInput
                     value={newItemName}
@@ -206,6 +206,8 @@ function Sidebar({ onTaskGroupSelect }) {
                     <IconPlus size={20} />
                 </Button>
             </div>
+            <h4 style={{ margin: '-4px 0 10px 0', fontWeight:'500' }}>Task Groups</h4>
+
             <List spacing="xs" style={{ padding: 0 }}>
                 {itemsList}
             </List>
