@@ -162,7 +162,7 @@ function CardList({ selectedTaskGroupId, searchQuery }) {
     };
 
     return (
-        <Container style={{ margin: '0 auto', minWidth:'-webkit-fill-available', paddingRight:'0' }}>
+        <Container style={{ margin: '0 auto', minWidth:'-webkit-fill-available', padding:'0' }}>
             <div style={{ height: 'Calc(100vh - 190px)', overflow: 'auto', width: '100%', padding:'0 20px' }}>
                 {/* List of Tasks */}
                 {filteredTasks.map((task) => (
@@ -206,7 +206,7 @@ function CardList({ selectedTaskGroupId, searchQuery }) {
 
             <div style={{ width: '100%' }}>
                 {/* Add New Task */}
-                <Card shadow="sm" radius="50" style={{ maxWidth: '76%', marginLeft: 'auto', marginRight: 'auto' }} padding="md" mt="md">
+                <Card shadow="sm" radius="50" style={{ maxWidth: '52rem', marginLeft: 'auto', marginRight: 'auto' }} padding="md" mt="md">
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <TextInput
                             placeholder="Task Name"
