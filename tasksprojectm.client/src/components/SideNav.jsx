@@ -132,7 +132,19 @@ function Sidebar({ onTaskGroupSelect }) {
                 throw new Error(`Error deleting task group: ${response.statusText}`);
             }
 
-            setItems(items.filter((item) => item.id !== id));
+            //    setItems(items.filter((item) => item.id !== id));
+            const updatedItems = items.filter((item) => item.id !== id);
+            setItems(updatedItems);
+
+            if (active !== null && items[active]?.id === id) {
+                if (updatedItems.length > 0) {
+                    setActive(0);
+                    onTaskGroupSelect(updatedItems[0].id);
+                } else {
+                    setActive(null);
+                    onTaskGroupSelect(null);
+                }
+            }
         } catch (error) {
             console.error(error);
         }
