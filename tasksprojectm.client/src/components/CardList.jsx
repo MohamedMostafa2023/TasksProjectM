@@ -240,6 +240,11 @@ function CardList({ selectedTaskGroupId, searchQuery }) {
                             variant="unstyled"
                             onChange={(e) => setNewDescription(e.target.value)}
                             style={{ width: '60%' }}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                    addTask();
+                                }
+                            }}
                         />
                         <Button
                             onClick={addTask}
