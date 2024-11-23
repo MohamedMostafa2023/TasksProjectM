@@ -70,6 +70,7 @@ function CardList({ selectedTaskGroupId, searchQuery }) {
                 task.taskName.toLowerCase().includes(lowerCaseQuery)
             )
         );
+        scrollToEnd();
     }, [searchQuery, tasks]);
 
 
