@@ -174,7 +174,7 @@ function Sidebar({ onTaskGroupSelect }) {
     ));
 
     return (
-        <Box p="md" style={{ backgroundColor: '#f7f9fc', height: '95vh' }}>
+        <Box p="md">
             <h3 style={{ textAlign: 'center' }}>Task Groups</h3>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
                 <TextInput

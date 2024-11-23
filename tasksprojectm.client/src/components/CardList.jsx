@@ -162,11 +162,11 @@ function CardList({ selectedTaskGroupId, searchQuery }) {
     };
 
     return (
-        <Container>
-            <div style={{ height: '550px', overflow: 'auto', paddingRight: '250px', paddingLeft: '94px' }}>
+        <Container style={{ margin: '0 auto', minWidth:'-webkit-fill-available', paddingRight:'0' }}>
+            <div style={{ height: 'Calc(100vh - 190px)', overflow: 'auto', width: '100%' }}>
                 {/* List of Tasks */}
                 {filteredTasks.map((task) => (
-                    <Card key={task.taskId} radius="lg" shadow="sm" padding="lg" mb="sm">
+                    <Card key={task.taskId} radius="lg" style={{ maxWidth: '60%', marginLeft: 'auto', marginRight: 'auto' }} shadow="sm" padding="lg" mb="sm">
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <Group position="left" style={{ width: '90%', display: 'flex', flexDirection: 'column', alignContent: 'flex-start', alignItems: 'flex-start' }}>
                                 <Group>
@@ -204,42 +204,44 @@ function CardList({ selectedTaskGroupId, searchQuery }) {
                 ))}
             </div>
 
-            {/* Add New Task */}
-            <Card shadow="sm" radius="50" padding="md" mt="md">
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <TextInput
-                        placeholder="Task Name"
-                        value={newTitle}
-                        radius="md"
-                        variant="unstyled"
-                        onChange={(e) => setNewTitle(e.target.value)}
-                        style={{ width: '30%' }}
-                    />
-                    <TextInput
-                        placeholder="Task Description"
-                        value={newDescription}
-                        radius="md"
-                        variant="unstyled"
-                        onChange={(e) => setNewDescription(e.target.value)}
-                        style={{ width: '60%' }}
-                    />
-                    <Button
-                        onClick={addTask}
-                        radius="xl"
-                        gradient={{ from: 'blue', to: 'cyan', deg: 65 }}
-                        style={{
-                            padding: '10px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            width: '35px',
-                            height: '35px',
-                        }}
-                    >
-                        <IconPlus size={20} />
-                    </Button>
-                </div>
-            </Card>
+            <div style={{ width: '100%' }}>
+                {/* Add New Task */}
+                <Card shadow="sm" radius="50" style={{ maxWidth: '76%', marginLeft: 'auto', marginRight: 'auto' }} padding="md" mt="md">
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <TextInput
+                            placeholder="Task Name"
+                            value={newTitle}
+                            radius="md"
+                            variant="unstyled"
+                            onChange={(e) => setNewTitle(e.target.value)}
+                            style={{ width: '30%' }}
+                        />
+                        <TextInput
+                            placeholder="Task Description"
+                            value={newDescription}
+                            radius="md"
+                            variant="unstyled"
+                            onChange={(e) => setNewDescription(e.target.value)}
+                            style={{ width: '60%' }}
+                        />
+                        <Button
+                            onClick={addTask}
+                            radius="xl"
+                            gradient={{ from: 'blue', to: 'cyan', deg: 65 }}
+                            style={{
+                                padding: '10px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                width: '35px',
+                                height: '35px',
+                            }}
+                        >
+                            <IconPlus size={20} />
+                        </Button>
+                    </div>
+                </Card>
+            </div>
 
             {/* Edit Task Modal */}
             <Modal

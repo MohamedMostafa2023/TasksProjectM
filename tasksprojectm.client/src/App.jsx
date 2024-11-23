@@ -27,9 +27,14 @@ function App() {
 
     const [selectedTaskGroupId, setSelectedTaskGroupId] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
+    const [isSideNavVisible, setIsSideNavVisible] = useState(true);
 
     const handleSearch = (query) => {
         setSearchQuery(query);
+    };
+
+    const toggleSideNav = () => {
+        setIsSideNavVisible((prev) => !prev);
     };
 
     useEffect(() => {
@@ -42,11 +47,11 @@ function App() {
     return (
         <Container fluid h={50} my="md">
             <Grid gutter="md">
-                <Grid.Col span={2.5}>
+                <Grid.Col className="customSmooth" style={{ backgroundColor: '#f7f9fc', height: '95vh', width: '18.7rem', position: 'absolute', zIndex: '1000', marginLeft: isSideNavVisible ? '0rem' : '-21rem' }}>
                     <SideNav onTaskGroupSelect={setSelectedTaskGroupId} />
                 </Grid.Col>
-                <Grid.Col span={9.5}>
-                    <AppHeader onSearch={handleSearch} />
+                <Grid.Col className="customSmooth" style={{ paddingLeft: isSideNavVisible ? '20rem' : '1rem' }}>
+                    <AppHeader onSearch={handleSearch} onToggleSideNav={toggleSideNav} />
                     <CardList selectedTaskGroupId={selectedTaskGroupId} searchQuery={searchQuery} />
                 </Grid.Col>
             </Grid>

@@ -11,7 +11,7 @@ import {
 import { IconSearch, IconLogout, IconChevronDown } from '@tabler/icons-react';
 import userAvatar from '../assets/bird-thumbnail.jpg';
 
-function AppHeader({ onSearch }) {
+function AppHeader({ onSearch, onToggleSideNav }) {
     const [searchValue, setSearchValue] = useState('');
     const user = { name: 'Dev Mohamed', avatar: '../assets/bird-thumbnail.jpg' };
 
@@ -29,7 +29,7 @@ function AppHeader({ onSearch }) {
         <div px="md" style={{ display: 'flex', alignItems: 'center', height: '65px' }}>
             <Burger
                 opened={false}
-                onClick={() => setMenuOpened((o) => !o)}
+                onClick={() => onToggleSideNav((o) => !o)}
                 size="sm"
                 mr="xl"
                 aria-label="Toggle navigation"
@@ -43,7 +43,7 @@ function AppHeader({ onSearch }) {
                 value={searchValue}
                 radius="md"
                 onChange={(event) => handleSearchChange(event.target.value)}
-                style={{ width: '60%', marginRight: 'auto' }}
+                style={{ width: 'Calc(100% - 390px)', marginRight: 'auto' }}
             />
 
             <Menu shadow="md" width={200}>

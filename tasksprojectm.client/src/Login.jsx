@@ -67,33 +67,35 @@ function Login() {
 
     return (
         <Container size={420} radius="md" my={40}>
-            <Title ta="center">Welcome back!</Title>
+            <div className="customloginContainer">
+                <Title ta="center">Login To TaskM</Title>
 
-            <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-                <form onSubmit={handleLogin}>
-                    <TextInput
-                        label="Username"
-                        placeholder="Your username"
-                        required
-                        radius="md"
-                        value={userName}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                    <PasswordInput
-                        label="Password"
-                        placeholder="Your password"
-                        required
-                        mt="md"
-                        radius="md"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    {error && <Text color="red" mt="sm">{error}</Text>}
-                    <Button fullWidth mt="xl" radius="md" type="submit" loading={loading}>
-                        Sign in
-                    </Button>
-                </form>
-            </Paper>
+                <Paper withBorder p={30} mt={30} radius="lg">
+                    <form onSubmit={handleLogin}>
+                        <TextInput
+                            label="Username"
+                            placeholder="Your username"
+                            required
+                            radius="md"
+                            value={userName}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                        <PasswordInput
+                            label="Password"
+                            placeholder="Your password"
+                            required
+                            mt="md"
+                            radius="md"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        {error && <Text color="red" mt="sm">{error}</Text>}
+                        <Button fullWidth mt="xl" radius="md" type="submit" loading={loading}>
+                            Sign in
+                        </Button>
+                    </form>
+                </Paper>
+            </div>
         </Container>
     );
 }
